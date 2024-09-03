@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <!-- Esempio di changeSet per creare una tabella -->
+    <changeSet id="1" author="matteoroxis">
+        <createTable tableName="utente">
+            <column name="id" type="int">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="nome" type="varchar(255)"/>
+            <column name="email" type="varchar(255)"/>
+        </createTable>
+    </changeSet>
+
+    <!-- Puoi aggiungere altri changeSet qui -->
+    <changeSet id="2" author="matteoroxis">
+        <addColumn tableName="utente">
+            <column name="insertTimestamp" type="timestamp">
+            </column>
+        </addColumn>
+    </changeSet>
+
+    <changeSet author="matteoroxis" id="3">
+        <createIndex indexName="email_idx" tableName="utente">
+            <column name="email"/>
+        </createIndex>
+    </changeSet>
+
+</databaseChangeLog>
